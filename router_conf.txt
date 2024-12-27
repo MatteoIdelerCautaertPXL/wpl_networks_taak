@@ -1,0 +1,87 @@
+Router1#show run
+Building configuration...
+
+Current configuration : 950 bytes
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Router1
+!
+!
+!
+enable secret 5 $1$mERr$wjgoTihR5fQVhS8uQeJuZ0
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username admin password 7 08131C5B1D1C17
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name pxl.be
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:1::1/64
+ ipv6 enable
+!
+interface GigabitEthernet0/0/1
+ ip address 192.168.2.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:2::1/64
+ ipv6 enable
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ password 7 08131C5B1D1C17
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 08131C5B1D1C17
+ login local
+ transport input ssh
+line vty 5 15
+ password 7 08131C5B1D1C17
+ login local
+ transport input ssh

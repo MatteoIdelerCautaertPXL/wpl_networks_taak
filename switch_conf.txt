@@ -1,0 +1,46 @@
+SwitchLinks#show running-config 
+Building configuration...
+
+Current configuration : 1475 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SwitchLinks
+!
+!
+enable secret 5 $1$mERr$V53rbuvR479fLg9mhfkbR0
+!
+!
+!
+ip domain-name pxl.be
+!
+username admin privilege 1 password 7 08125B1F1D1A0D3B43050717
+
+...
+
+interface Vlan1
+ ip address 192.168.1.12 255.255.255.0
+ ipv6 address 2001:DB8:1::12/64
+!
+ip default-gateway 192.168.1.1
+!
+!
+!
+!
+!
+!
+line con 0
+ password 7 08125B1F1D1A0D3B43050717
+ login
+!
+line vty 0 4
+ password 7 08125B1F1D1A0D3B43050717
+ login local
+ transport input ssh
+line vty 5 15
+ password 7 08125B1F1D1A0D3B43050717
+ login local
+ transport input ssh
